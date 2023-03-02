@@ -2,8 +2,11 @@ import { useContext } from 'react';
 import myContext from '../context/myContext';
 
 function Table() {
-  const { planets } = useContext(myContext);
-  console.log(planets);
+  const { planets, search } = useContext(myContext);
+  const filterName = planets.filter((planet) => planet.name.includes(search));
+  console.log(search);
+  console.log(filterName);
+
   return (
     <section>
       <table>
@@ -25,7 +28,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {planets.map((planet) => (
+          {filterName.map((planet) => (
             <tr key={ planet.name }>
               <td>{planet.name}</td>
               <td>{planet.rotation_period}</td>

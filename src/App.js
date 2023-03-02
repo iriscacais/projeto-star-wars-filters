@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import Filter from './components/Filter';
 import Table from './components/Table';
+// import filtercontext from './context/filterContext';
 import myContext from './context/myContext';
 
 function App() {
   const [planets, setPlanets] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     fetch('https://swapi.dev/api/planets')
@@ -21,12 +24,16 @@ function App() {
 
   const context = {
     planets,
+    search,
+    setSearch,
+    setPlanets,
   };
-  console.log(context);
+  // console.log(context);
   return (
     <myContext.Provider value={ context }>
       <section>
         <span>Star Wars</span>
+        <Filter />
         <Table />
       </section>
     </myContext.Provider>
