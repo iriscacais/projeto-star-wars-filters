@@ -4,8 +4,8 @@ import myContext from '../context/myContext';
 function Table() {
   const { planets, search } = useContext(myContext);
   const filterName = planets.filter((planet) => planet.name.includes(search));
-  console.log(search);
-  console.log(filterName);
+  // console.log(search);
+  // console.log(filterName);
 
   return (
     <section>

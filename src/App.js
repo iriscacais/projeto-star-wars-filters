@@ -8,6 +8,11 @@ import myContext from './context/myContext';
 function App() {
   const [planets, setPlanets] = useState([]);
   const [search, setSearch] = useState('');
+  const [numberFilter, setNumberFilter] = useState({
+    columns: 'population',
+    operador: 'maior que',
+    number: 0,
+  });
 
   useEffect(() => {
     fetch('https://swapi.dev/api/planets')
@@ -27,8 +32,10 @@ function App() {
     search,
     setSearch,
     setPlanets,
+    numberFilter,
+    setNumberFilter,
   };
-  // console.log(context);
+
   return (
     <myContext.Provider value={ context }>
       <section>
