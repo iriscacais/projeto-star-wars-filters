@@ -16,10 +16,10 @@ function Table() {
   console.log(numberFilter);
   return (
     <section>
-      {/* {
+      {
         `${numberFilter.columns}
         ${numberFilter.operador} ${numberFilter.number}`
-      } */}
+      }
 
       <table>
         <thead>
