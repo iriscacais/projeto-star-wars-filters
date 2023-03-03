@@ -13,6 +13,13 @@ function App() {
     operador: 'maior que',
     number: 0,
   });
+  const [columns, setColumns] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
 
   useEffect(() => {
     fetch('https://swapi.dev/api/planets')
@@ -34,6 +41,8 @@ function App() {
     setPlanets,
     numberFilter,
     setNumberFilter,
+    columns,
+    setColumns,
   };
 
   return (

@@ -9,6 +9,8 @@ function Filter() {
     setPlanets,
     numberFilter,
     setNumberFilter,
+    columns,
+    setColumns,
   } = useContext(myContext);
 
   const inputSearch = ({ target }) => {
@@ -27,26 +29,37 @@ function Filter() {
     setNumberFilter({ ...numberFilter, number: target.value });
   };
 
-  const filterButton = () => {
+  const filterComparison = () => {
     let filter = planets;
     if (numberFilter.operador === 'maior que') {
       filter = filter
         .filter((planet) => (Number(planet[numberFilter.columns])
         > Number(numberFilter.number)));
+      return filter;
     }
 
     if (numberFilter.operador === 'menor que') {
       filter = filter
         .filter((planet) => (Number(planet[numberFilter.columns])
         < Number(numberFilter.number)));
+      return filter;
     }
 
     if (numberFilter.operador === 'igual a') {
       filter = filter
         .filter((planet) => (Number(planet[numberFilter.columns])
         === Number(numberFilter.number)));
+      return filter;
     }
     setPlanets(filter);
+  };
+
+  const filterButton = () => {
+    const filtros = filterComparison();
+    const filterColumns = columns.filter((colum) => colum !== numberFilter.columns);
+    setColumns(filterColumns);
+    setPlanets(filtros);
+    console.log(filtros);
   };
 
   return (
@@ -61,11 +74,11 @@ function Filter() {
       <label>
         Columns
         <select data-testid="column-filter" onChange={ inputColumns }>
-          <option>population</option>
-          <option>orbital_period</option>
-          <option>diameter</option>
-          <option>rotation_period</option>
-          <option>surface_water</option>
+          {
+            columns.map((column) => (
+              <option key={ column }>{column}</option>
+            ))
+          }
         </select>
       </label>
 

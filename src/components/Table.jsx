@@ -2,13 +2,25 @@ import { useContext } from 'react';
 import myContext from '../context/myContext';
 
 function Table() {
-  const { planets, search } = useContext(myContext);
+  const {
+    planets,
+    search,
+    numberFilter,
+  } = useContext(myContext);
+
   const filterName = planets.filter((planet) => planet.name.includes(search));
+  // const filtroNumerico = [numberFilter];
+  // console.log(filtroNumerico);
   // console.log(search);
   // console.log(filterName);
-
+  console.log(numberFilter);
   return (
     <section>
+      {/* {
+        `${numberFilter.columns}
+        ${numberFilter.operador} ${numberFilter.number}`
+      } */}
+
       <table>
         <thead>
           <tr>
