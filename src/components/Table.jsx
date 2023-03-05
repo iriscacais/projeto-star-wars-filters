@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import myContext from '../context/myContext';
 
 function Table() {
@@ -6,14 +6,20 @@ function Table() {
     planets,
     search,
     numberFilter,
+    copyPlanets,
+    setCopyPlanets,
   } = useContext(myContext);
 
-  const filterName = planets.filter((planet) => planet.name.includes(search));
+  useEffect(() => {
+    const filterName = planets.filter((planet) => planet.name.includes(search));
+    setCopyPlanets(filterName);
+  }, [search, planets]);
+
   // const filtroNumerico = [numberFilter];
   // console.log(filtroNumerico);
   // console.log(search);
   // console.log(filterName);
-  console.log(numberFilter);
+  // console.log(numberFilter);
   return (
     <section>
       {
@@ -40,7 +46,7 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {filterName.map((planet) => (
+          {copyPlanets.map((planet) => (
             <tr key={ planet.name }>
               <td>{planet.name}</td>
               <td>{planet.rotation_period}</td>

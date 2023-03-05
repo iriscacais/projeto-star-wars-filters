@@ -3,14 +3,14 @@ import myContext from '../context/myContext';
 
 function Filter() {
   const {
-    planets,
     search,
     setSearch,
-    setPlanets,
     numberFilter,
     setNumberFilter,
     columns,
     setColumns,
+    copyPlanets,
+    setCopyPlanets,
   } = useContext(myContext);
 
   const inputSearch = ({ target }) => {
@@ -29,37 +29,61 @@ function Filter() {
     setNumberFilter({ ...numberFilter, number: target.value });
   };
 
-  const filterComparison = () => {
-    let filter = planets;
+  // const filterComparison = () => {
+  //   let filter = planets;
+  //   if (numberFilter.operador === 'maior que') {
+  //     filter = filter
+  //       .filter((planet) => (Number(planet[numberFilter.columns])
+  //       > Number(numberFilter.number)));
+  //     return filter;
+  //   }
+
+  //   if (numberFilter.operador === 'menor que') {
+  //     filter = filter
+  //       .filter((planet) => (Number(planet[numberFilter.columns])
+  //       < Number(numberFilter.number)));
+  //     return filter;
+  //   }
+
+  //   if (numberFilter.operador === 'igual a') {
+  //     filter = filter
+  //       .filter((planet) => (Number(planet[numberFilter.columns])
+  //       === Number(numberFilter.number)));
+  //     return filter;
+  //   }
+  //   setPlanets(filter);
+  // };
+
+  const filterButton = () => {
+    let filter = copyPlanets;
     if (numberFilter.operador === 'maior que') {
       filter = filter
         .filter((planet) => (Number(planet[numberFilter.columns])
         > Number(numberFilter.number)));
-      return filter;
     }
 
     if (numberFilter.operador === 'menor que') {
       filter = filter
         .filter((planet) => (Number(planet[numberFilter.columns])
         < Number(numberFilter.number)));
-      return filter;
     }
 
     if (numberFilter.operador === 'igual a') {
       filter = filter
         .filter((planet) => (Number(planet[numberFilter.columns])
         === Number(numberFilter.number)));
-      return filter;
     }
-    setPlanets(filter);
-  };
+    setCopyPlanets(filter);
+    setNumberFilter({
+      columns: 'population',
+      operador: 'maior que',
+      number: 0,
+    });
 
-  const filterButton = () => {
-    const filtros = filterComparison();
     const filterColumns = columns.filter((colum) => colum !== numberFilter.columns);
     setColumns(filterColumns);
-    setPlanets(filtros);
-    console.log(filtros);
+    console.log(columns);
+    // console.log(columns);
   };
 
   return (

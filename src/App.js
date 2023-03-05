@@ -7,6 +7,7 @@ import myContext from './context/myContext';
 
 function App() {
   const [planets, setPlanets] = useState([]);
+  const [copyPlanets, setCopyPlanets] = useState([]);
   const [search, setSearch] = useState('');
   const [numberFilter, setNumberFilter] = useState({
     columns: 'population',
@@ -31,6 +32,7 @@ function App() {
         });
 
         setPlanets(dataPlanets);
+        setCopyPlanets(dataPlanets);
       });
   }, []);
 
@@ -43,6 +45,8 @@ function App() {
     setNumberFilter,
     columns,
     setColumns,
+    copyPlanets,
+    setCopyPlanets,
   };
 
   return (
