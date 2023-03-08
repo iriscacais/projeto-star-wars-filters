@@ -1,4 +1,4 @@
-const mock = {
+const mockData = {
     "count": 60, 
     "next": "https://swapi.dev/api/planets/?page=2", 
     "previous": null, 
@@ -237,4 +237,4 @@ const mock = {
         }
     ]
 }
-export default mock;
+export default mockData;
