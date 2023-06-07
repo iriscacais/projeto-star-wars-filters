@@ -4,8 +4,6 @@
 ### Descrição do projeto
 O objetivo desse projeto foi criar uma lista com diversos filtros de planetas do universo Star Wars usando Context API e react hooks. É possível filtrar planetas por nome, e outras caracteristicas como diametro e população utilizando operadores lógicos. Foi utilizada a API: https://swapi.dev/api/planets
 
-obs: esse projeto ainda não conta com estilizaçã0 CSS.
-
 ### Tecnologias usadas no desenvolvimento do projeto
 - Context API;
 - react hooks useState;
