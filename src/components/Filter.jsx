@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import myContext from '../context/myContext';
+import './filter.css';
 
 function Filter() {
   const {
@@ -37,15 +38,16 @@ function Filter() {
   };
 
   return (
-    <section>
+    <section className="filterSearch">
       <input
         type="text"
         value={ search.value }
         onChange={ (e) => setSearch(e.target.value) }
         data-testid="name-filter"
+        className="inputFilter"
       />
 
-      <label>
+      <label className="labelTitle">
         Columns
         <select
           data-testid="column-filter"
@@ -53,6 +55,8 @@ function Filter() {
             { ...numberFilter, columns: e.target.value },
           ) }
           value={ numberFilter.columns }
+          className="inputFilter"
+          id="columnsInput"
         >
           {
             columns.map((column) => (
@@ -62,7 +66,7 @@ function Filter() {
         </select>
       </label>
 
-      <label>
+      <label className="labelTitle">
         Operador
         <select
           data-testid="comparison-filter"
@@ -70,6 +74,8 @@ function Filter() {
             { ...numberFilter, operador: e.target.value },
           ) }
           value={ numberFilter.operador }
+          className="inputFilter"
+          id="operadorInput"
         >
           <option>maior que</option>
           <option>menor que</option>
@@ -84,22 +90,27 @@ function Filter() {
           { ...numberFilter, number: e.target.value },
         ) }
         data-testid="value-filter"
+        className="inputFilter"
+        id="numberInput"
       />
-
-      <button
-        data-testid="button-filter"
-        type="button"
-        onClick={ salvarFiltros } // aqui os filtros salvos no array e o filtro novo
-      >
-        Filtrar
-      </button>
-      <button
-        type="button"
-        onClick={ deleteFilters }
-        data-testid="button-remove-filters"
-      >
-        Excluir
-      </button>
+      <section className="filterButtons">
+        <button
+          data-testid="button-filter"
+          type="button"
+          onClick={ salvarFiltros } // aqui os filtros salvos no array e o filtro novo
+          className="button"
+        >
+          Filtrar
+        </button>
+        <button
+          type="button"
+          onClick={ deleteFilters }
+          data-testid="button-remove-filters"
+          className="button"
+        >
+          Excluir
+        </button>
+      </section>
     </section>
   );
 }
