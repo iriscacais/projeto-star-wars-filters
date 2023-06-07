@@ -51,7 +51,7 @@ function App() {
   return (
     <myContext.Provider value={ context }>
       <section>
-        <span>Star Wars</span>
+        <span className="title">Star Wars Filter</span>
         <Filter />
         <Table />
       </section>

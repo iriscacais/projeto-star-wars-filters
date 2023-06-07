@@ -1,0 +1,50 @@
+.button {
+    border-radius: 10px;
+    color: azure;
+    font-family: monospace;
+    margin-left: 5px;
+}
+
+.paragraph {
+    color: azure;
+    font-family: monospace;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.aplyFilters {
+align-items: center;    
+display: flex;
+justify-content: center;
+}
+
+table, th, td {
+    border: 2px solid rgb(130, 121, 121);
+    color: azure;
+ }
+
+ table {
+    border-collapse: collapse;
+
+}
+th {
+    text-align: center;
+    height: 50px;
+    padding: 10px
+}
+
+td {
+    text-align: center;
+    height: 50px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.table {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    overflow:auto; 
+    width: 90%;
+}
